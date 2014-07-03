@@ -19,9 +19,18 @@ namespace RefuelApp.Models
         private FuelCostEntities db = new FuelCostEntities();
 
         // GET: api/Refuels
-        public IQueryable<Refuels> GetRefuels()
+        public IQueryable<RefuelViewModel> GetRefuels()
         {
-            return db.Refuels;
+            string CurrentUserId = User.Identity.GetUserId();
+            return from r in db.Refuels
+                   where r.UserFK == CurrentUserId
+                   select new RefuelViewModel
+                   {
+                       Id = r.Id,
+                       DateOf = r.DateOf,
+                       TotalDistanceTraveled = r.TotalDistanceTraveled,
+                       TotalFuelCostInEuros = r.TotalFuelCostInEuros
+                   };
         }
 
         // GET: api/Refuels/5
@@ -41,13 +50,15 @@ namespace RefuelApp.Models
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutRefuels(int id, RefuelViewModel refuelsvm)
         {
-            Refuels refuels = new Refuels();
-            refuels.DateOf = refuelsvm.DateOf;
-            refuels.TotalDistanceTraveled = refuelsvm.TotalDistanceTraveled;
-            refuels.TotalFuelCostInEuros = refuelsvm.TotalFuelCostInEuros;
-            refuels.UserFK = User.Identity.GetUserId();
-            refuels.InsertDate = DateTime.Now;
-            refuels.ModifiedDate = DateTime.Now;
+            Refuels refuels = (from r in db.Refuels where r.Id == id select r).SingleOrDefault();
+            if (refuels == null) { return NotFound(); }
+            else
+            {
+                refuels.DateOf = refuelsvm.DateOf;
+                refuels.TotalDistanceTraveled = refuelsvm.TotalDistanceTraveled;
+                refuels.TotalFuelCostInEuros = refuelsvm.TotalFuelCostInEuros;
+                refuels.UserFK = User.Identity.GetUserId();
+            }
 
             if (!ModelState.IsValid)
             {
@@ -89,8 +100,6 @@ namespace RefuelApp.Models
             refuels.TotalDistanceTraveled = refuelsvm.TotalDistanceTraveled;
             refuels.TotalFuelCostInEuros = refuelsvm.TotalFuelCostInEuros;
             refuels.UserFK = User.Identity.GetUserId();
-            refuels.InsertDate = DateTime.Now;
-            refuels.ModifiedDate = DateTime.Now;
 
             if (!ModelState.IsValid)
             {
