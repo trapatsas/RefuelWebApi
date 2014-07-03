@@ -1,4 +1,4 @@
-.help-page h1,
+﻿.help-page h1,
 .help-page .h1,
 .help-page h2,
 .help-page .h2,

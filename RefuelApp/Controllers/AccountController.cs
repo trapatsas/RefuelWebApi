@@ -16,11 +16,13 @@ using Microsoft.Owin.Security.OAuth;
 using RefuelApp.Models;
 using RefuelApp.Providers;
 using RefuelApp.Results;
+using System.Web.Http.Cors;
 
 namespace RefuelApp.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
