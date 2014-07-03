@@ -5,10 +5,6 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefuelApp", "RefuelApp\RefuelApp.csproj", "{7A7C2348-0880-4988-B772-0ECEF4DFFA67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RefuelApp.Tests", "RefuelApp.Tests\RefuelApp.Tests.csproj", "{413FD07D-66C0-42C6-B555-FFCC25CE2895}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleTSSite", "..\..\..\Visual Studio 2012\Projects\SampleTSSite\SampleTSSite\SampleTSSite.csproj", "{93423C0A-CF54-4149-8662-A91BB1F54842}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{7A7C2348-0880-4988-B772-0ECEF4DFFA67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A7C2348-0880-4988-B772-0ECEF4DFFA67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A7C2348-0880-4988-B772-0ECEF4DFFA67}.Release|Any CPU.Build.0 = Release|Any CPU
-		{413FD07D-66C0-42C6-B555-FFCC25CE2895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{413FD07D-66C0-42C6-B555-FFCC25CE2895}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{413FD07D-66C0-42C6-B555-FFCC25CE2895}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{413FD07D-66C0-42C6-B555-FFCC25CE2895}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93423C0A-CF54-4149-8662-A91BB1F54842}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93423C0A-CF54-4149-8662-A91BB1F54842}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93423C0A-CF54-4149-8662-A91BB1F54842}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93423C0A-CF54-4149-8662-A91BB1F54842}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
