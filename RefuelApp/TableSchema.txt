@@ -1,0 +1,37 @@
+﻿CREATE TABLE [dbo].[Refuels] (
+    [Id]                    INT            IDENTITY (1, 1) NOT NULL,
+    [DateOf]                DATETIME       NOT NULL,
+    [TotalFuelCostInEuros]  DECIMAL (18)   NOT NULL,
+    [TotalDistanceTraveled] INT            NULL,
+    [UserFK]                NVARCHAR (128) NOT NULL,
+    [InsertDate]            DATETIME       NULL,
+    [ModifiedDate]          DATETIME       NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Refuels_AspNetUsers] FOREIGN KEY ([UserFK]) REFERENCES [dbo].[AspNetUsers] ([Id])
+);
+
+
+GO
+CREATE TRIGGER [CreateInsertedDate]
+	ON [dbo].[Refuels]
+	FOR INSERT
+	AS
+	BEGIN
+		SET NOCOUNT ON
+		UPDATE [dbo].[Refuels]
+		SET [dbo].[Refuels].[InsertDate] = GETDATE()
+		FROM [dbo].[Refuels] 
+		JOIN INSERTED ON [dbo].[Refuels].[Id] = INSERTED.Id
+	END
+GO
+CREATE TRIGGER [UpdateModifiedDate]
+	ON [dbo].[Refuels]
+	FOR UPDATE
+	AS
+	BEGIN
+		SET NOCOUNT ON
+		UPDATE [dbo].[Refuels]
+		SET [dbo].[Refuels].[ModifiedDate] = GETDATE()
+		FROM [dbo].[Refuels] 
+		JOIN inserted ON [dbo].[Refuels].[Id] = inserted.Id
+	END
