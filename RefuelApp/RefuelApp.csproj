@@ -246,7 +246,7 @@
     <Compile Include="Models\Refuels.cs">
       <DependentUpon>RefuelDBDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\RefuelsController.cs" />
+    <Compile Include="Controllers\RefuelsController.cs" />
     <Compile Include="Models\RefuelViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

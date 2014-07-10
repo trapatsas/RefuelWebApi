@@ -54,9 +54,9 @@ namespace RefuelApp
             //    consumerKey: "",
             //    consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //    appId: "",
-            //    appSecret: "");
+            app.UseFacebookAuthentication(
+                appId: "1438183876455871",
+                appSecret: "db87b8bf0b3fefc032b0ab8ad069202b");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
